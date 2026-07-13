@@ -6,14 +6,19 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        hmap=defaultdict(int)
-        curr=head
-        while curr:
-            if curr not in hmap:
-                hmap[curr]
-            else:
+        # if not head or not head.next:
+        #     return False
+
+        slow=head
+        fast=head
+
+        while fast and fast.next:
+            if slow== fast.next.next:
                 return True
-            curr=curr.next
+            else:
+                slow=slow.next
+                fast=fast.next.next
         return False
+            
 
         
